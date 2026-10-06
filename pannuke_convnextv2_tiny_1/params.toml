@@ -1,0 +1,65 @@
+dataset = "pannuke"
+data_path = ""
+encoder = "convnextv2_tiny.fcmae_ft_in22k_in1k"
+out_channels_cls = 6
+inst_channels = 5
+pretrained = true
+batch_size = 24
+validation_batch_size = 64
+weight_decay = 0.0001
+learning_rate = 0.0001
+min_learning_rate = 1e-8
+training_steps = 200000
+validation_step = 1000
+checkpoint_step = 10000
+fl_gamma = 2
+loss_lambda = 0.1
+tta = 16
+eval_optim_metric = "pannuke"
+n_rounds = 5
+save = false
+alt_metric_ccrop = 256
+match_euc_dist = 12
+eval_criteria = "lizard|alt|pannuke"
+max_hole_size = 128
+checkpoint_path = ""
+experiment = "pannuke_convnextv2_tiny_1"
+seed = 42
+fold = 1
+test_as_val = false
+optim_metric = "pannuke"
+num_workers = 4
+use_amp = true
+color_scale = 0.4
+
+[aug_params_fast.mirror]
+prob_x = 0.5
+prob_y = 0.5
+prob = 0.5
+
+[aug_params_fast.translate]
+max_percent = 0.05
+prob = 0.2
+
+[aug_params_fast.scale]
+min = 0.8
+max = 1.2
+prob = 0.2
+
+[aug_params_fast.zoom]
+min = 0.5
+max = 1.5
+prob = 0.2
+
+[aug_params_fast.rotate]
+max_degree = 179
+prob = 0.75
+
+[aug_params_fast.shear]
+max_percent = 0.1
+prob = 0.2
+
+[aug_params_fast.elastic]
+alpha = [ 120, 120,]
+sigma = 8
+prob = 0.5
